@@ -31,14 +31,15 @@ function winning() {
     $.ajax({
       type: "POST",
       url: "/games/new",
-      data: { the_winner: "player_one"}
-    })
-    .done(function( msg ) {
-      alert( "Data Saved: " + msg );
+      data: { the_winner: "player_one"},
+      success: function(response) {
+        // console.log(response);
+        window.location.replace('/');
+      }
     });
+
   }
   if(player2.position == 21) {
-   // return player2 to Ajax
     $.ajax({
       type: "POST",
       url: "/games/new",
